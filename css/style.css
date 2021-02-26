@@ -17,6 +17,9 @@
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 html {
@@ -30,6 +33,11 @@ body {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+}
+
+h2 {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
 }
 
 #playGround {
@@ -52,6 +60,12 @@ canvas {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+}
+
+.vbox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .flexCenter {
@@ -147,6 +161,11 @@ canvas {
 	color: #4889f0;
 }
 
+.thumbnail {
+	width: 28px;
+	height: 20px;
+}
+
 .bottomRight {
 	position: absolute;
 	bottom: 10px;
@@ -156,4 +175,43 @@ canvas {
 
 .bottomRight > * {
 	margin-left: 5px;
+}
+
+#startTypeChooser {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#startTypeChooser .popupBackdrop {
+	z-index: initial;
+}
+
+#startTypeChooser .dropDown {
+	position: relative;
+}
+
+#startTypeChooser h2 {
+	position: relative;
+	color: #eeeeee;
+}
+
+#startTypeChooser .row {
+	cursor: pointer;
+	font-size: 1.3rem;
+	margin: 5px 10px;
+}
+
+#startTypeChooser .row:hover .label {
+	color: #4889f0;
+}
+
+#startTypeChooser .label {
+	font-size: 1.3rem;
+	margin-right: 15px;
+}
+
+#startTypeChooser .thumbnail {
+	width: 83px;
+	height: 60px;
 }
