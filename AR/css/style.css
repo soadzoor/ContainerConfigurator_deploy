@@ -1,0 +1,293 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../assets/fonts/Roboto-Regular.ttf);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
+	line-height: 1;
+	text-decoration: none;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: normal;
+	color: #333333;
+	box-sizing: border-box;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	font-family: Roboto;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+h2 {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+}
+
+a {
+	color: #0000ee;
+	text-decoration: underline;
+}
+
+#configurator {
+	display: contents;
+}
+
+#playGround {
+	background-color: #cccccc;
+	flex: 1;
+	display: flex;
+	touch-action: none;
+	cursor: grab;
+}
+
+#playGround.rotating {
+	cursor: grabbing;
+}
+
+canvas {
+	touch-action: none;
+}
+
+.hbox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.vbox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.flexCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.btn {
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	border: 1px solid #cccccc;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	background: white;
+}
+
+.floating.btn {
+	color: #bbbbbb;
+	opacity: 0.9;
+	transition: opacity 0.2s ease-out;
+	font-size: 1rem;
+	border-radius: 100%;
+	width: 15px;
+	height: 15px;
+}
+
+.delete {
+	width: 160px;
+	padding: 10px;
+	font-size: 1rem;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+}
+
+#modelViewer {
+	width: 100%;
+	height: 100%;
+}
+
+model-viewer {
+	width: 100%;
+	height: 100%;
+}
+
+#enterARButton {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+#exitARButton {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 1;
+}
+
+.disabled {
+	opacity: 0.5 !important;
+	pointer-events: none !important;
+}
+
+.btn:hover {
+	border-color: #4889f0;
+	color: #4889f0;
+}
+
+.popupBackdrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, 0.65);
+}
+
+.popupWindow {
+	margin: 10px;
+	padding: 10px 20px;
+	background: white;
+	box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, .25);
+	border-radius: 20px;
+}
+
+.popupWindow .message {
+	text-align: center;
+	margin: 20px;
+}
+
+.buttonContainer .btn {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.dropDown {
+	position: absolute;
+	background: white;
+	border-radius: 5px;
+	font-size: 0.5rem;
+	white-space: nowrap;
+	padding: 3px;
+	box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.dropDown > * {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	cursor: pointer;
+}
+
+.dropDown > *:hover {
+	color: #4889f0;
+}
+
+.thumbnail {
+	width: 28px;
+	height: 20px;
+}
+
+.bottomLeft {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	font-size: 1rem;
+}
+
+.bottomRight {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	font-size: 1rem;
+}
+
+.bottomLeft > *, .bottomRight > * {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.bottomRight > * {
+	margin-left: 5px;
+}
+
+#startTypeChooser {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#startTypeChooser .popupBackdrop {
+	z-index: initial;
+}
+
+#startTypeChooser .dropDown {
+	position: relative;
+}
+
+#startTypeChooser h2 {
+	position: relative;
+	color: #eeeeee;
+}
+
+#startTypeChooser .row {
+	cursor: pointer;
+	font-size: 1.3rem;
+	margin: 5px 10px;
+}
+
+#startTypeChooser .row:hover .label {
+	color: #4889f0;
+}
+
+#startTypeChooser .label {
+	font-size: 1.3rem;
+	margin-right: 15px;
+}
+
+#startTypeChooser .thumbnail {
+	width: 83px;
+	height: 60px;
+}
+
+label {
+	margin-top: 10px;
+	margin-bottom: 2px;
+	text-align: left;
+}
+
+input, textarea {
+	padding: 2px;
+	border-radius: 3px;
+	outline: none;
+	border: 1px solid #bbbbbb;
+}
+
+input:focus, textarea:focus {
+	border-color: #4889f0;
+}
+
+input.invalid, textarea.invalid {
+	border-color: #f04040;
+}
