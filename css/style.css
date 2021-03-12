@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../assets/fonts/Roboto-Regular.ttf);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -8,7 +13,7 @@
 	font-size: 1em;
 	font-style: normal;
 	font-weight: normal;
-	color: #bbbbbb;
+	color: #333333;
 	box-sizing: border-box;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */
@@ -20,6 +25,7 @@
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
+	font-family: Roboto;
 }
 
 html {
@@ -38,6 +44,15 @@ body {
 h2 {
 	font-size: 2.5rem;
 	margin-bottom: 20px;
+}
+
+a {
+	color: #0000ee;
+	text-decoration: underline;
+}
+
+#configurator {
+	display: contents;
 }
 
 #playGround {
@@ -74,6 +89,10 @@ canvas {
 	justify-content: center;
 }
 
+.hidden {
+	display: none !important;
+}
+
 .btn {
 	padding: 5px;
 	border-radius: 5px;
@@ -84,6 +103,7 @@ canvas {
 }
 
 .floating.btn {
+	color: #bbbbbb;
 	opacity: 0.9;
 	transition: opacity 0.2s ease-out;
 	font-size: 1rem;
@@ -93,14 +113,37 @@ canvas {
 }
 
 .delete {
-	width: 150px;
+	width: 160px;
 	padding: 10px;
-	font-size: 1.5rem;
+	font-size: 1rem;
 	position: absolute;
 	bottom: 10px;
 	left: 50%;
 	transform: translateX(-50%);
 	text-align: center;
+}
+
+#modelViewer {
+	width: 100%;
+	height: 100%;
+}
+
+model-viewer {
+	width: 100%;
+	height: 100%;
+}
+
+#enterARButton {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+#exitARButton {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 1;
 }
 
 .disabled {
@@ -166,11 +209,23 @@ canvas {
 	height: 20px;
 }
 
+.bottomLeft {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	font-size: 1rem;
+}
+
 .bottomRight {
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
 	font-size: 1rem;
+}
+
+.bottomLeft > *, .bottomRight > * {
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .bottomRight > * {
@@ -214,4 +269,25 @@ canvas {
 #startTypeChooser .thumbnail {
 	width: 83px;
 	height: 60px;
+}
+
+label {
+	margin-top: 10px;
+	margin-bottom: 2px;
+	text-align: left;
+}
+
+input, textarea {
+	padding: 2px;
+	border-radius: 3px;
+	outline: none;
+	border: 1px solid #bbbbbb;
+}
+
+input:focus, textarea:focus {
+	border-color: #4889f0;
+}
+
+input.invalid, textarea.invalid {
+	border-color: #f04040;
 }
