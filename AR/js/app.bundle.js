@@ -29481,18 +29481,18 @@ ${array.join("")}
       FileUtils.downloadFileFromUrl(url, `containers-${DateUtils.getCurrentDateString()}.glb`);
     }
     static getUrlFromScene(scene, format) {
-      return new Promise((resolve, reject) => {
+      return new Promise(async (resolve, reject) => {
         const clone = THREEUtils.deepClone(scene);
-        const options = {
-          binary: true
-        };
         if (format === "glb") {
+          const options = {
+            binary: true
+          };
           this._gltfExporter.parse(clone, (result) => {
             const ret = FileUtils.createURLFromData(result, "application/octet-stream");
             resolve(ret);
           }, options);
         } else {
-          const result = this._usdzExporter.parse(scene);
+          const result = await this._usdzExporter.parse(scene);
           const ret = FileUtils.createURLFromData(result, "application/octet-stream");
           resolve(ret);
         }
