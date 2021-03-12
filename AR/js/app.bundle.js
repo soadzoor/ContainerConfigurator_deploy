@@ -30441,14 +30441,14 @@ ${array.join("")}
       HTMLUtils.detach(this._startTypeChooser);
     }
     async createModelViewerElement() {
-      const glbUrl = await this._sceneManager.getObjectUrlFromConfig("glb");
-      const usdzUrl = await this._sceneManager.getObjectUrlFromConfig("usdz");
+      const isIOS = Constants.IS_IOS;
+      const format = isIOS ? "usdz" : "glb";
+      const url = await this._sceneManager.getObjectUrlFromConfig(format);
       const element = document.createElement("model-viewer");
-      element.setAttribute("src", glbUrl);
-      element.setAttribute("ios-src", usdzUrl);
+      element.setAttribute(isIOS ? "ios-src" : "src", url);
       element.setAttribute("alt", "Containers");
       element.setAttribute("ar-placement", "floor");
-      element.setAttribute("ar-modes", "webxr scene-viewer quick-look");
+      element.setAttribute("ar-modes", "scene-viewer webxr quick-look");
       element.toggleAttribute("ar", true);
       element.toggleAttribute("camera-controls", true);
       return element;
