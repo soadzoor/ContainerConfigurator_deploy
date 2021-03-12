@@ -29486,11 +29486,16 @@ ${array.join("")}
         const options = {
           binary: true
         };
-        const exporter = format === "glb" ? this._gltfExporter : this._usdzExporter;
-        exporter.parse(clone, (result) => {
+        if (format === "glb") {
+          this._gltfExporter.parse(clone, (result) => {
+            const ret = FileUtils.createURLFromData(result, "application/octet-stream");
+            resolve(ret);
+          }, options);
+        } else {
+          const result = this._usdzExporter.parse(scene);
           const ret = FileUtils.createURLFromData(result, "application/octet-stream");
           resolve(ret);
-        }, options);
+        }
       });
     }
   };
