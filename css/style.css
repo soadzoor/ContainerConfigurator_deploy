@@ -315,6 +315,13 @@ input, textarea {
 	border-radius: 3px;
 	outline: none;
 	border: 1px solid #bbbbbb;
+
+	-webkit-touch-callout: initial; /* iOS Safari */
+	-webkit-user-select: initial; /* Safari */
+	-khtml-user-select: initial; /* Konqueror HTML */
+	-moz-user-select: initial; /* Old versions of Firefox */
+	-ms-user-select: initial; /* Internet Explorer/Edge */
+	user-select: initial;
 }
 
 input:focus, textarea:focus {
